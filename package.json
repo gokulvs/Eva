@@ -1,0 +1,18 @@
+{
+  "name": "EvarlineSports",
+  "version": "0.0.0",
+  "description": "Sports",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gokulvs@bitbucket.org/gokulvs/evarlinsports.git"
+  },
+  "keywords": [
+    "Git"
+  ],
+  "author": "gokul",
+  "license": "Evarline"
+}
