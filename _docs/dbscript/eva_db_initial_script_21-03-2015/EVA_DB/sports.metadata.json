@@ -1,0 +1,1 @@
+{ "options" : { "create" : "sports" }, "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "EVA_DB.sports", "name" : "_id_" } ] }

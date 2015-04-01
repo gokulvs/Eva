@@ -1,0 +1,94 @@
+@import "node_modules/material-ui/src/less/scaffolding.less";
+@import "node_modules/material-ui/src/less/variables/colors.less";
+
+
+//Define a custom less file to override
+//any variables defined in scaffolding.less
+
+/*@import "eva-overrides.less";*/
+
+@import "node_modules/material-ui/src/less/components.less";
+@accent-1-color: @orange-A200;
+.eva-home-container{
+	position: relative;
+
+	.add-sp-form-container{
+
+		
+	    margin-left: 19%;
+	    margin-right: 10%;
+	    width: 80%;
+
+
+
+	}
+	.eva-add-sp-form{
+	    	padding: 10px;
+	    	.input-fields-wrapper{
+	    		list-style: none;
+	    	}
+	    	.form-button-container{
+	    		
+	    	}
+	}
+	.toolbar-container{
+		width: 100%;
+		position: fixed;
+		top: 0;
+
+		.eva-searchform{
+			margin-left: 16%;
+		}
+	}
+	.eva-sp-list{
+		margin-top: 60px;
+		padding: 40px;
+
+		.spList{
+			.spviewitem{
+				float: left;
+    			margin: 10px;
+    			width: 200px;
+    			/*border: 1px solid #ccc;*/
+    			h1{
+    				font-family: "Raleway",sans-serif;
+    				font-size: 20px;
+    			}
+				.img-wrapper{
+    				width: 100%;
+    				/*padding: 7px;*/
+
+					.spitemimage{
+						display: block;
+					    height: auto;
+					    max-width: 100%;
+					}
+				}
+				.data-wrapper{
+					padding: 7px;
+					p{
+						/*position: relative;*/
+					}
+					.location-details{
+						 span {
+					    	padding-left: 2px;
+					    }
+					    .location-icon{
+					    	font-size: 20px;
+					    }
+					}
+					.data-footer{
+						ul{
+							list-style: none;
+							li{
+								display: inline;
+    							margin-left: 8px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+

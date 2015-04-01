@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Eva Home</title>
+  <meta name="description" content="Eva Application">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!--  <link rel="import" href="components/polymer/dist/polymer.html"> -->
+
+  <link rel="stylesheet" href="css/fa/font-awesome.css">
+  <link rel="stylesheet" href="css/iconstyle.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+
+</head>
+<body>
+  {{{ body }}}
+   <script>
+    var WebFontConfig = {
+      google: { families: [ 'Roboto:400,300,500:latin' ] }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
+  <script src="js/socket.io-1.1.0.js"></script>
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="js/bundle.js"></script>
+  <script src="js/masonry.pkgd.js"></script>
+</body>
+</html>

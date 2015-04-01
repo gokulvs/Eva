@@ -2,10 +2,7 @@
   "name": "EvarlineSports",
   "version": "0.0.0",
   "description": "Sports",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "app.js",
   "repository": {
     "type": "git",
     "url": "https://gokulvs@bitbucket.org/gokulvs/evarlinsports.git"
@@ -14,5 +11,39 @@
     "Git"
   ],
   "author": "gokul",
-  "license": "Evarline"
+  "license": "Evarline",
+  "scripts": {
+    "watch": "watchify app.jsx -o public/js/bundle.js -v",
+    "browserify": "browserify app.jsx | uglifyjs > public/js/bundle.js",
+    "build-less": "lessc src/less/main.less public/css/main.css",
+    "watch-less": "nodemon --watch src/less/main.less --ext less --exec 'npm run build-less'",
+    "build": "npm run browserify ",
+    "start": "npm run watch-less & npm run watch & nodemon server.js"
+  },
+  "dependencies": {
+    "express": "~4.12.3",
+    "express-handlebars": "~1.1.0",
+    "mongoose": "^4.0.1",
+    "node-jsx": "~0.11.0",
+    "ntwitter": "^0.5.0",
+    "react": "~0.12.2",
+    "socket.io": "^1.1.0",
+    "mocha": "~2.2.1",
+    "material-ui": "~0.7.1",
+    "body-parser": "~1.12.2",
+    "method-override": "~2.3.2"
+  },
+  "devDependencies": {
+    "browserify": "~6.0.3",
+    "nodemon": "^1.2.1",
+    "reactify": "~0.14.0",
+    "uglify-js": "~2.4.15",
+    "watchify": "~2.0.0",
+    "less": "*"
+  },
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
+  }
 }
