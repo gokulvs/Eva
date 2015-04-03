@@ -2651,6 +2651,8 @@ hr {
 .eva-home-container .eva-sp-list .spList .spviewitem .img-wrapper {
   width: 100%;
   /*padding: 7px;*/
+  background: none repeat scroll 0 0 #f3f5b0;
+  padding: 10px;
 }
 .eva-home-container .eva-sp-list .spList .spviewitem .img-wrapper .spitemimage {
   display: block;

@@ -58,7 +58,7 @@ var COMMONS = {
 var SpTile = React.createClass({
 
   render : function(){
-    console.log("locs : ",this.props.data.location);
+    //console.log("locs : ",this.props.data.location);
     var locations = this.props.data.location.map(function(loc){
       return (
         <span className="eva-location-title">{loc}</span>
@@ -139,8 +139,9 @@ var EvaSportsSPList = React.createClass({
           console.error(this.props.url, status, err.toString());
         }.bind(this)
       });*/
+  console.log('tyoeof : ',typeof criteria);
     console.log("getting list from server");
-    console.log(this.props);
+    //console.log(this.props);
     var dataList = [],
     _this = this;
     $.ajax({
@@ -150,7 +151,7 @@ var EvaSportsSPList = React.createClass({
       dataType: 'json',
       success: function(data) {
          this.setState({list: data});
-         console.log('data list : ',data);
+         //console.log('data list : ',data);
         }.bind(this),
         error: function(xhr, status, err) {
          // console.error(this.props.url, status, err.toString());
@@ -165,9 +166,10 @@ var EvaSportsSPList = React.createClass({
         //setInterval(this.loadCommentsFromServer, this.props.pollInterval);
         var _this = this;
     $(document).on(COMMONS.LIST_CHANGE_EVENT,function(e,data){
-      console.log("args : ",arguments);
+     /* console.log("args : ",arguments);
       _this.setState({list: data.list});
-      data.fun();
+      data.fun();*/
+      _this.loadListFromServer(data.fun);
     });
   },
   render : function(){
@@ -279,9 +281,9 @@ var EvaDialoge = React.createClass({
     console.log("dialoge cancel");
     this.refs.evaDialog.dismiss();
   },
-  _updateListState : function(list){
+  _updateListState : function(){
     //this.props.linktoother.setState({list:list});
-    $(document).trigger(COMMONS.LIST_CHANGE_EVENT,{list:list,fun:function(){
+    $(document).trigger(COMMONS.LIST_CHANGE_EVENT,{fun:function(){
       this.refs.evaDialog.dismiss();
       //this.refs.snakbarman.show();
     }.bind(this)});
@@ -302,7 +304,7 @@ var EvaDialoge = React.createClass({
       success: function(data) {
          /* this.setState({data: data});*/
         // console.log('data : ',data);
-         this._updateListState(data);
+         this._updateListState();
         }.bind(this),
         error: function(xhr, status, err) {
          // console.error(this.props.url, status, err.toString());

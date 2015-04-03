@@ -15,7 +15,7 @@ var express = require('express'),
 
 var app = express();
 var port = process.env.PORT || 8890;
-
+var _log = console.log;
 
 var _dbLog = function(msg,obj){
 	return function(){console.log.call(console,"DB log _/-\\_/> - ",msg,obj)};
@@ -57,16 +57,19 @@ app.get('/', birds.index);
 app.get('/get', function(req,res){
 	//var mdel = new spDocs;
 	
-	spDocs.getServiceProviders(res,
+	spDocs.getServiceProviders(
+		{},
 		function(err,sps){
 			if(!err){
 				//console.log("callback executing");
+				res.setHeader('Content-Type', 'application/json');
 				res.send(JSON.stringify(sps));
 				res.end();
 			}else{
 				console.log("Error in excecuting query");
 			}
 		}
+
 	);
 });
 //app.use(birds.page404);
@@ -74,15 +77,23 @@ app.post('/save',function(req,res){
 	//console.log(req);
 	//console.log("req.body",req.body)
 	var data = req.body.data;
+	//var _this = this;
+
 	console.log("model : ",data);
-	/*spDocs.saveServiceProvider(data,function(msg){
+	spDocs.saveServiceProvider(data,function(msg){
+		//if(typeof msg == '')
+		if(typeof msg == 'object'){
+			res.setHeader('Content-Type', 'application/json');
+		}
+		//_log("resp : ",msg);
 		res.send(msg);
 		res.end();
-	});*/
-	var spModel = new spDocuments(data);
+		//res.end();
+	},this);
+	//var spModel = new spDocuments(data);
 
-	console.log("Saving ot DB");
-	spModel.save(function(err){
+	//console.log("Saving ot DB");
+	/*spModel.save(function(err){
 		if(!err){
 			//res.send('saved the Service Provider List');
 			spDocuments.find({},function(dbErr,sps){
@@ -95,7 +106,7 @@ app.post('/save',function(req,res){
 			res.send('Failed to save to DB');
 			res.end();
 		}
-	}); 
+	}); */
 
 });
 
